@@ -10,12 +10,6 @@ const items = [
     defaultOpen: true,
     content: SettingProperties,
   },
-  {
-    label: "Icônes",
-    key: "icons",
-    icon: "i-heroicons-information-circle",
-    content: SettingIcons,
-  },
 ];
 function save() {
   $fetch("/api/settings", { method: "put", body: data.value }).then(refresh);

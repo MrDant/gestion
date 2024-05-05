@@ -1,18 +1,15 @@
-import type { pushScopeId } from 'vue';
 <script setup>
 const model = defineModel();
-const search = ref("");
 function remove(icon) {
   model.value = model.value.filter((e) => e !== icon);
 }
 function add(e) {
-  model.value.push(e.target.value);
-  e.target.value = "";
+  model.value.push(e);
 }
 </script>
 <template>
   <div>
-    <UInput v-model="search" @keypress.enter="add" />
+    <InputIcon @add="add" />
     <UDivider class="my-8" />
     <div class="flex items-center flex-wrap gap-4">
       <div

@@ -22,22 +22,7 @@ function onSubmit(icon) {
 
     <template #panel>
       <div class="p-2">
-        <UInput
-          @keypress.enter="
-            onSubmit($event.target.value);
-            $event.target.value = '';
-          "
-        />
-        <div class="grid grid-cols-6 gap-2 mt-2">
-          <UButton
-            v-for="icon in data.icons"
-            :key="icon"
-            @click="onSubmit(icon)"
-            variant="soft"
-            color="gray"
-            :icon="icon"
-          />
-        </div>
+        <InputIcon @add="onSubmit($event)" />
       </div>
     </template>
   </UPopover>
