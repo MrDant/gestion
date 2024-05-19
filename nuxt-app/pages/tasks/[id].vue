@@ -16,7 +16,7 @@ if (error.value) {
 }
 
 const save = () => {
-  $fetch("/api/tasks/" + _id, { method: "put", body: data.value }).then(() => {
+  saveTask(data.value).then(() => {
     refresh();
     if (!data.parent) {
       useEmit();
@@ -50,6 +50,7 @@ function addProperties(type) {
     <div class="flex items-center gap-2 mb-4">
       <EditableIcon v-model="data.icon" @onSubmit="save" />
       <EditableTitle v-model="data.name" @onSubmit="save" />
+      <TagsStatus :task="data" class="ml-auto" />
     </div>
     <h2>Propriétés</h2>
     <div class="grid grid-cols-2 gap-8">
