@@ -59,12 +59,18 @@ function addProperties(type) {
         <EditableDate v-model="data.properties['date-start']" @change="save" />
       </div>
       <div v-for="(p, index) in data.properties.others" :key="p">
-        <div>
+        <div class="relative">
           <EditableProperty
             v-model="data.properties.others[index]"
             @change="save"
-          /><UButton
-            icon="i-heroicons-minus"
+          />
+          <UButton
+            icon="i-heroicons-minus-16-solid"
+            :ui="{ rounded: 'rounded-full' }"
+            color="red"
+            variant="outline"
+            class="absolute top-0 right-0"
+            size="2xs"
             @click="data.properties.others.splice(index, 1)"
           />
         </div>
