@@ -86,8 +86,8 @@ function addProperties(type) {
 
     <h2>Tâches :</h2>
     <TaskList :task="data._id" />
-    <UDivider class="m-4" />
-    <UTextarea v-model="data.contenu" @blur="save" autoresize />
+    <Editor v-model="data.contenu" class="mt-2" />
+
     <div class="flex gap-2 my-2">
       <UButton label="Supprimer" @click="remove" color="red" />
       <UButton label="Enregistrer" @click="save" />
